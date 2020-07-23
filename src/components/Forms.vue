@@ -1,14 +1,9 @@
 <template>
   <div>
+    <Results />
     <br />
-    <h3>
-      <b>
-        CSC 642 Summer 2020 Individual Assignment Jack Kower
-        Data survey form
-      </b>
-    </h3>
     <h2>
-      <b>Please Fill Out the Form</b>
+      <b>Please Fill Out this Form</b>
     </h2>
     <form>
       <div class="form-group row">
@@ -16,14 +11,14 @@
         <div class="col-sm-6">
           <input
             type="text"
-            v-model="name" required
+            v-model="names" required
             class="form-control"
             id="inputName"
             placeholder="first and last name"
           />
         </div>
       </div>
-      <p>name: {{name}}</p>
+      <p>name: {{names}}</p>
       <div class="form-group row">
         <label for="inputAddress" class="col-sm-3 col-form-label">Address</label>
         <div class="col-sm-6">
@@ -38,7 +33,7 @@
 
       <div class="form-group row">
         <label for="inputZip" class="col-sm-3 col-form-label">Zip code</label>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <input
             v-model="zip"
             name="zip"
@@ -64,7 +59,7 @@
           <label for="inputDegree" class="col-sm-3">Pick your educational level</label>
           <div class="col-sm-2">
             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-              <option selected>Choose your educational level</option>
+              <option selected>educational level</option>
               <option value="1">High School</option>
               <option value="2">Associate's</option>
               <option value="3">Bachelor's</option>
@@ -109,15 +104,15 @@
 
       <br />
       <div class="form-group row">
-        <label for="inputPassword" class="col-sm-3 col-form-label">Phone #</label>
-        <div class="col-sm-8">
-          <input type="password" class="form-control" id="phone" v-model="phone" />
+        <label class="col-sm-3 col-form-label">Phone #</label>
+        <div class="col-sm-2">
+          <input class="form-control" id="phone" v-model="phone" />
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputPassword" class="col-sm-3 col-form-label">Email</label>
-        <div class="col-sm-8">
-          <input type="password" class="form-control" id="inputPassword" v-model="email" />
+        <label  class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+          <input class="form-control" id="inputPassword" v-model="email" />
         </div>
       </div>
       <div class="form-group row">
@@ -128,7 +123,7 @@
       </div>
       <div class="form-group row">
         <label for="inputZip" class="col-sm-3 col-form-label">To Prove your not a robot, solve this problem. if a is 3 and b is 1 what is the sum of a and b?</label>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <input
             v-model="robot"
             name="robot"
@@ -145,7 +140,7 @@
         </div>
       </div>
       <router-link to="/results">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button><br>
       </router-link>
       <vue-recaptcha sitekey="Your key here"></vue-recaptcha>
     </form>
@@ -157,18 +152,19 @@ import Vue from "vue";
 import VCalendar from "v-calendar";
 import calendar from "v-calendar/lib/components/calendar.umd";
 import DatePicker from "v-calendar/lib/components/date-picker.umd";
+import Results from "./Results";
 export default {
-  components: "Forms",
+  components: "Results",
   data() {
     return {
-      name: "",
+      names: "",
       address: "",
       zip: "",
       Phone: "",
       email: "",
       date: new Date()
     };
-  }
-};
+  },
+}
 </script>
 
